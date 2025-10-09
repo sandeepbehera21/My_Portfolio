@@ -1,7 +1,0 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import {
-  SiSpring, SiNodedotjs, SiExpress, SiMysql, SiMongodb, SiHibernate, SiDocker, SiAmazon, SiRedux,
-  SiSwagger, SiJsonwebtokens
-} from 'react-icons/si'
-import { TbShieldLock, TbApi, TbBrandReact } from 'react-icons/tb'
