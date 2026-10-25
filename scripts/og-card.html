@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>OG card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1200px; height: 630px; overflow: hidden; }
+      body {
+        background: #0a0a0b;
+        background-image:
+          radial-gradient(900px 500px at 88% -12%, rgba(13, 148, 136, 0.30), transparent 60%),
+          radial-gradient(700px 420px at -6% 30%, rgba(59, 130, 246, 0.18), transparent 60%);
+        font-family: 'Inter', system-ui, sans-serif;
+        color: #fafafa;
+        display: flex;
+        align-items: center;
+        gap: 56px;
+        padding: 0 72px;
+        position: relative;
+      }
+      /* Thin brand rule along the top edge */
+      body::before {
+        content: '';
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 6px;
+        background: linear-gradient(90deg, #14b8a6, #ff6b57);
+      }
+      .left { flex: 1 1 auto; min-width: 0; }
+      .role {
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: #2dd4bf;
+        margin-bottom: 18px;
+      }
+      .name {
+        font-family: 'Bebas Neue', 'Inter', sans-serif;
+        font-size: 124px;
+        line-height: 0.86;
+        letter-spacing: 0.01em;
+        color: #ff6b57;
+        text-transform: uppercase;
+      }
+      .tagline {
+        margin-top: 26px;
+        font-size: 27px;
+        font-weight: 500;
+        line-height: 1.35;
+        color: #e4e4e7;
+      }
+      .stack {
+        margin-top: 26px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .chip {
+        font-size: 17px;
+        font-weight: 500;
+        color: #d4d4d8;
+        padding: 8px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .right { flex: 0 0 320px; display: flex; justify-content: center; }
+      .photo {
+        width: 320px;
+        height: 394px;
+        border-radius: 24px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.9);
+        background: #17171a;
+      }
+      .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    </style>
+  </head>
+  <body>
+    <div class="left">
+      <p class="role">Backend Developer</p>
+      <p class="name">Sandeep<br />Behera</p>
+      <p class="tagline">Scalable APIs &amp; secure systems<br />with Java Spring Boot and the MERN stack.</p>
+      <div class="stack">
+        <span class="chip">Java</span>
+        <span class="chip">Spring Boot</span>
+        <span class="chip">MERN</span>
+        <span class="chip">REST APIs</span>
+        <span class="chip">Google Cloud</span>
+      </div>
+    </div>
+    <div class="right">
+      <div class="photo">
+        <img src="./portrait/Screenshot 2025-10-08 122351.png" alt="" />
+      </div>
+    </div>
+  </body>
+</html>

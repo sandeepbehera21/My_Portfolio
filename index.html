@@ -3,19 +3,82 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Sandeep Behera — Backend Developer Portfolio (Spring Boot & MERN). Building scalable APIs & secure systems." />
-    <title>Sandeep Behera — Backend Developer</title>
+    <title>Sandeep Behera — Backend Developer | Spring Boot & MERN</title>
+    <meta name="description" content="Backend Developer building scalable APIs and secure systems with Java Spring Boot and the MERN stack. Portfolio of production-grade backend architecture, microservices, and cloud deployment." />
+    <meta name="author" content="Sandeep Behera" />
+    <meta name="keywords" content="Backend Developer, Java, Spring Boot, MERN Stack, Node.js, REST API, Microservices, MongoDB, MySQL, Docker, Google Cloud" />
+    <link rel="canonical" href="https://sandeepbehera.netlify.app/" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0a0b" media="(prefers-color-scheme: dark)" />
+
+    <!-- Open Graph (LinkedIn, Facebook, Slack link previews) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Sandeep Behera — Portfolio" />
+    <meta property="og:title" content="Sandeep Behera — Backend Developer" />
+    <meta property="og:description" content="Building scalable APIs & secure systems with Java Spring Boot and the MERN stack." />
+    <meta property="og:url" content="https://sandeepbehera.netlify.app/" />
+    <meta property="og:image" content="https://sandeepbehera.netlify.app/og-image.png" />
+    <meta property="og:image:alt" content="Sandeep Behera — Backend Developer portfolio" />
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Sandeepkumar99B" />
+    <meta name="twitter:creator" content="@Sandeepkumar99B" />
+    <meta name="twitter:title" content="Sandeep Behera — Backend Developer" />
+    <meta name="twitter:description" content="Building scalable APIs & secure systems with Java Spring Boot and the MERN stack." />
+    <meta name="twitter:image" content="https://sandeepbehera.netlify.app/og-image.png" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600&family=Unbounded:wght@800;900&display=swap" rel="stylesheet">
+
+    <!-- Structured data so search engines understand who this is -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sandeep Behera",
+        "jobTitle": "Backend Developer",
+        "email": "mailto:beherasandeepkumar21@gmail.com",
+        "url": "https://sandeepbehera.netlify.app/",
+        "sameAs": [
+          "https://github.com/sandeepbehera21",
+          "https://www.linkedin.com/in/sandeep2333",
+          "https://x.com/Sandeepkumar99B"
+        ],
+        "knowsAbout": ["Java", "Spring Boot", "Node.js", "REST APIs", "MongoDB", "MySQL", "Docker", "Google Cloud"],
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Centurion University, Bhubaneswar"
+        }
+      }
+    </script>
+
     <script>
-      // Force dark mode
-      document.documentElement.classList.add('dark');
+      // Apply the saved theme or default to dark mode before first paint
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var dark = stored ? stored === 'dark' : true;
+          document.documentElement.classList.toggle('dark', dark);
+          document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+        } catch (e) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
     </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <div style="padding:2rem;font-family:system-ui;color:#fff;background:#0a0a0a">
+        <h1>Sandeep Behera — Backend Developer</h1>
+        <p>This portfolio requires JavaScript. Reach me at beherasandeepkumar21@gmail.com</p>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
-  
 </html>
