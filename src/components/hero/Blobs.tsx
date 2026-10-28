@@ -306,25 +306,27 @@ export default function Blobs({
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.95, delay: 0.12, ease: EASE_OUT }}
         >
-          {/* Restrained atmospheric cyan halo */}
-          <circle cx="388" cy="578" r="145" fill="url(#left-planet-halo)" />
+          <g className="hero-planet-left">
+            {/* Restrained atmospheric cyan halo */}
+            <circle cx="388" cy="578" r="145" fill="url(#left-planet-halo)" />
 
-          {/* Planet body (radius reduced from 112 -> 96) */}
-          <circle
-            cx="375"
-            cy="585"
-            r="96"
-            fill="url(#left-planet-fill)"
-            filter="url(#planet-surface)"
-          />
+            {/* Planet body (radius reduced from 112 -> 96) */}
+            <circle
+              cx="375"
+              cy="585"
+              r="96"
+              fill="url(#left-planet-fill)"
+              filter="url(#planet-surface)"
+            />
 
-          {/* Refined cyan crescent rim highlight */}
-          <path
-            d="M375 489 A 96 96 0 0 1 471 585 A 96 96 0 0 1 405 676 A 93.5 96 0 0 0 466 585 A 93.5 96 0 0 0 375 489 Z"
-            fill="var(--hero-planet-rim, #72F2FF)"
-            filter="url(#cyan-glow)"
-            opacity="var(--hero-rim-opacity, 0.82)"
-          />
+            {/* Refined cyan crescent rim highlight */}
+            <path
+              d="M375 489 A 96 96 0 0 1 471 585 A 96 96 0 0 1 405 676 A 93.5 96 0 0 0 466 585 A 93.5 96 0 0 0 375 489 Z"
+              fill="var(--hero-planet-rim, #72F2FF)"
+              filter="url(#cyan-glow)"
+              opacity="var(--hero-rim-opacity, 0.82)"
+            />
+          </g>
         </motion.g>
 
         {/* ============================================================
@@ -336,49 +338,51 @@ export default function Blobs({
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.95, delay: 0.16, ease: EASE_OUT }}
         >
-          {/* Controlled outer atmospheric glow */}
-          <circle cx="1135" cy="395" r="225" fill="url(#right-planet-halo)" />
+          <g className="hero-planet-right">
+            {/* Controlled outer atmospheric glow */}
+            <circle cx="1135" cy="395" r="225" fill="url(#right-planet-halo)" />
 
-          {/* Large planet body (radius reduced from 196 -> 168) */}
-          <circle
-            cx="1100"
-            cy="395"
-            r="168"
-            fill="url(#right-planet-fill)"
-            filter="url(#planet-surface)"
-          />
+            {/* Large planet body (radius reduced from 196 -> 168) */}
+            <circle
+              cx="1100"
+              cy="395"
+              r="168"
+              fill="url(#right-planet-fill)"
+              filter="url(#planet-surface)"
+            />
 
-          {/* Refined glowing cyan crescent limb on right edge */}
-          <path
-            d="M1074 229 A 168 168 0 0 1 1268 395 A 168 168 0 0 1 1147 556 A 164 168 0 0 0 1261 395 A 164 168 0 0 0 1074 229 Z"
-            fill="var(--hero-planet-rim, #A6F8FF)"
-            filter="url(#cyan-soft-limb)"
-            opacity="var(--hero-rim-opacity, 0.86)"
-          />
+            {/* Refined glowing cyan crescent limb on right edge */}
+            <path
+              d="M1074 229 A 168 168 0 0 1 1268 395 A 168 168 0 0 1 1147 556 A 164 168 0 0 0 1261 395 A 164 168 0 0 0 1074 229 Z"
+              fill="var(--hero-planet-rim, #A6F8FF)"
+              filter="url(#cyan-soft-limb)"
+              opacity="var(--hero-rim-opacity, 0.86)"
+            />
 
-          {/* Smaller foreground moon (radius reduced from 74 -> 62) */}
-          <circle
-            cx="1122"
-            cy="432"
-            r="62"
-            fill="url(#right-moon-fill)"
-            filter="url(#planet-surface)"
-          />
-          {/* Foreground moon cyan crescent rim light */}
-          <path
-            d="M1122 370 A 62 62 0 0 1 1184 432 A 62 62 0 0 1 1136 492 A 59.5 62 0 0 0 1180 432 A 59.5 62 0 0 0 1122 370 Z"
-            fill="var(--hero-planet-rim, #72F2FF)"
-            filter="url(#cyan-glow)"
-            opacity="var(--hero-rim-opacity, 0.8)"
-          />
+            {/* Smaller foreground moon (radius reduced from 74 -> 62) */}
+            <circle
+              cx="1122"
+              cy="432"
+              r="62"
+              fill="url(#right-moon-fill)"
+              filter="url(#planet-surface)"
+            />
+            {/* Foreground moon cyan crescent rim light */}
+            <path
+              d="M1122 370 A 62 62 0 0 1 1184 432 A 62 62 0 0 1 1136 492 A 59.5 62 0 0 0 1180 432 A 59.5 62 0 0 0 1122 370 Z"
+              fill="var(--hero-planet-rim, #72F2FF)"
+              filter="url(#cyan-glow)"
+              opacity="var(--hero-rim-opacity, 0.8)"
+            />
 
-          {/* Sweeping tilted orbital ring looping in front of planet */}
-          <path
-            d="M935 282 C 1135 300, 1405 425, 1385 525 C 1365 605, 1140 625, 950 570"
-            stroke="url(#orbit-cyan-grad)"
-            strokeWidth="1.35"
-            fill="none"
-          />
+            {/* Sweeping tilted orbital ring looping in front of planet */}
+            <path
+              d="M935 282 C 1135 300, 1405 425, 1385 525 C 1365 605, 1140 625, 950 570"
+              stroke="url(#orbit-cyan-grad)"
+              strokeWidth="1.35"
+              fill="none"
+            />
+          </g>
         </motion.g>
 
         {/* ============================================================

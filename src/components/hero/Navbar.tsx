@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { profile } from '../../data/portfolio'
 import { usePrefersReducedMotion } from '../../lib/interactions'
@@ -16,6 +16,15 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeTab, setActiveTab] = useState<string>('HOME')
   const reducedMotion = usePrefersReducedMotion()
+
+  useEffect(() => {
+    if (!menuOpen) return
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenuOpen(false)
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [menuOpen])
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, label: string, href: string) => {
     setActiveTab(label)
