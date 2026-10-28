@@ -8,8 +8,8 @@
     <meta name="author" content="Sandeep Behera" />
     <meta name="keywords" content="Backend Developer, Java, Spring Boot, MERN Stack, Node.js, REST API, Microservices, MongoDB, MySQL, Docker, Google Cloud" />
     <link rel="canonical" href="https://sandeepbehera.netlify.app/" />
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0a0a0b" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#F6F8FB" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#05080D" media="(prefers-color-scheme: dark)" />
 
     <!-- Open Graph (LinkedIn, Facebook, Slack link previews) -->
     <meta property="og:type" content="website" />
@@ -64,6 +64,7 @@
           var stored = localStorage.getItem('theme');
           var dark = stored ? stored === 'dark' : true;
           document.documentElement.classList.toggle('dark', dark);
+          document.documentElement.classList.toggle('light', !dark);
           document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
         } catch (e) {
           document.documentElement.classList.add('dark');

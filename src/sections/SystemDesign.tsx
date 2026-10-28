@@ -33,9 +33,9 @@ const architectureBlocks = [
   {
     title: 'Reliability & Fault Tolerance Principles',
     subtitle: 'Production Defense-in-Depth',
-    accent: 'border-cyan-400/30 hover:border-cyan-400',
-    pill: 'text-cyan-400 bg-cyan-400/10 border-cyan-400/30',
-    dot: 'bg-cyan-400',
+    accent: 'border-cyan-500/25 dark:border-cyan-400/30 hover:border-cyan-500',
+    pill: 'dark:text-cyan-300 text-cyan-800 bg-cyan-500/10 border-cyan-500/30',
+    dot: 'bg-lime',
     flow: ['Input Sanitization', 'Rate Limiting', 'Circuit Breakers', 'Structured Logging', 'Health Monitoring'],
     highlights: [
       'Graceful degradation when downstream external APIs or services timeout',

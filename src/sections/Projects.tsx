@@ -26,12 +26,12 @@ const projectIcons: Record<Project['icon'], ReactElement> = {
 }
 
 const iconTint: Record<Project['icon'], string> = {
-  leaf: '#D7FF32',
-  brain: '#FF1493',
-  cube: '#38BDF8',
-  cart: '#FF1593',
-  book: '#D5FF35',
-  chat: '#F59E0B',
+  leaf: 'var(--brand)',
+  brain: '#0EA5E9',
+  cube: 'var(--brand)',
+  cart: '#0284C7',
+  book: 'var(--brand)',
+  chat: '#0891B2',
 }
 
 function CaseBlock({
@@ -97,11 +97,7 @@ export default function Projects() {
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 pb-6 border-b border-subtle">
                 <div className="flex items-start gap-4">
                   <div
-                    className="p-3 rounded-xl flex-shrink-0 border"
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.03)',
-                      borderColor: 'rgba(255, 255, 255, 0.1)',
-                    }}
+                    className="p-3 rounded-xl flex-shrink-0 bg-sunken border border-subtle"
                   >
                     <svg
                       className="w-7 h-7"
@@ -187,7 +183,7 @@ export default function Projects() {
                 </div>
 
                 <div className="p-4 rounded-xl bg-sunken border border-subtle">
-                  <CaseBlock label="Engineering Approach" badgeClass="text-sky-400">
+                  <CaseBlock label="Engineering Approach" badgeClass="text-pink">
                     {bullets(p.approach)}
                   </CaseBlock>
                 </div>

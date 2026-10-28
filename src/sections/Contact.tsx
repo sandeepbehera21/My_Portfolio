@@ -19,10 +19,8 @@ function ContactRow({
   return (
     <li className="flex items-start gap-3.5 group">
       <span
-        className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 border transition-all duration-200 group-hover:scale-105"
+        className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 bg-sunken border border-subtle transition-all duration-200 group-hover:scale-105 group-hover:border-lime/50"
         style={{
-          background: 'rgba(255, 255, 255, 0.03)',
-          borderColor: 'rgba(255, 255, 255, 0.1)',
           color: accent,
         }}
       >

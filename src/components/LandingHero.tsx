@@ -10,13 +10,12 @@ import { profile, projects } from '../data/portfolio'
 const EASE_OUT = [0.22, 1, 0.36, 1] as const
 
 /**
- * Easy-to-tweak Hero copy constants.
- * Colors are controlled by CSS custom properties (--hero-bg, --hero-pink,
- * --hero-chartreuse, --hero-text) in src/style.css.
+ * Hero editorial copy constants matching the Cosmic Cyan reference poster.
  */
 const HERO_COPY = {
   leftStackTop: ['FULL-STACK', 'BACKEND', 'AI & CLOUD', 'SYSTEMS'],
   leftStackBottom: ['EMPOWERING', 'COMPANIES WITH', 'SCALABLE', 'SOLUTIONS.'],
+  rightTopStack: ['IDEAS', 'TECHNOLOGY', 'PEOPLE', 'IMPACT'],
   exploreLabel: ['EXPLORE', 'WORK'],
   previewCaption: ['REAL CODE', 'REAL SCALE', '03 SHIPPED'],
 } as const
@@ -71,12 +70,12 @@ export default function LandingHero() {
       onPointerLeave={handlePointerLeave}
       aria-label="Introduction"
     >
-      {/* Top Navbar with SB logo, uppercase links, thin bottom rule, and LET'S START pill */}
+      {/* Top Navbar with SB logo (cyan B), uppercase links, thin bottom rule, and LET'S START pill */}
       <Navbar />
 
-      {/* Main editorial poster stage */}
+      {/* Main cosmic editorial poster stage */}
       <div className="hero-stage">
-        {/* Multi-plane organic liquid blobs + halftone dot matrices (background, midground, foreground) */}
+        {/* Multi-plane cosmic planets, orbital arcs, cyan halftone matrix & bottom mountain horizon */}
         <Blobs
           parallaxX={blobX}
           parallaxY={blobY}
@@ -85,7 +84,25 @@ export default function LandingHero() {
           reducedMotion={reducedMotion}
         />
 
-        {/* Centered static B&W high-contrast portrait layered between blobs and giant typography */}
+        {/* Upper-right editorial pillar: IDEAS / TECHNOLOGY / PEOPLE / IMPACT + cyan bar */}
+        <motion.div
+          initial={reducedMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: 16 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.75, delay: 0.24, ease: EASE_OUT }}
+          className="hero-top-right-pillars"
+          aria-hidden="true"
+        >
+          <p className="hero-pillars-list">
+            {HERO_COPY.rightTopStack.map(word => (
+              <span key={word} className="block">
+                {word}
+              </span>
+            ))}
+          </p>
+          <span className="hero-pillars-bar" />
+        </motion.div>
+
+        {/* Centered static B&W high-contrast portrait layered between cosmic planets and giant typography */}
         <motion.div
           style={{ x: portraitX, y: portraitY }}
           initial={reducedMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.94, y: 18 }}
@@ -105,15 +122,15 @@ export default function LandingHero() {
             />
             {/* Targeted CSS halftone dot overlay on portrait shadow zones */}
             <div className="hero-portrait-halftone" aria-hidden="true" />
-            {/* Smooth bottom & edge vignette so portrait emerges naturally from the dark stage */}
+            {/* Smooth bottom & edge vignette so portrait merges naturally into the mountain horizon */}
             <div className="hero-portrait-fade" aria-hidden="true" />
           </div>
         </motion.div>
 
-        {/* Giant overlapping display typography: SANDEEP (#FF1593) / BEHERA (#D5FF35) */}
+        {/* Giant overlapping display typography: SANDEEP (White) / BEHERA (Electric Cyan) */}
         <HeroText reducedMotion={reducedMotion} />
 
-        {/* Left side: stacked uppercase editorial taglines with vertical divider */}
+        {/* Left side: stacked uppercase editorial taglines with glowing cyan vertical divider */}
         <motion.div
           initial={reducedMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: -18 }}
           animate={{ opacity: 1, x: 0 }}
@@ -149,7 +166,7 @@ export default function LandingHero() {
           transition={{ duration: 0.75, delay: 0.34, ease: EASE_OUT }}
           className="hero-bottom-bar"
         >
-          {/* Bottom-left: circular outlined arrow button + EXPLORE WORK + social circles */}
+          {/* Bottom-left: circular cyan-bordered arrow button + EXPLORE WORK + social circles */}
           <div className="hero-bottom-left">
             <button
               type="button"
@@ -163,7 +180,7 @@ export default function LandingHero() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth={1.6}
+                  strokeWidth={1.75}
                   aria-hidden="true"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-5-5l5 5-5 5" />
@@ -178,7 +195,7 @@ export default function LandingHero() {
               </span>
             </button>
 
-            {/* Outlined circular social icons (hover turns neon pink #FF1593) */}
+            {/* Outlined circular social icons */}
             <div className="hero-socials" aria-label="Social profiles">
               <SocialCircle href={profile.socials.github} label="GitHub Profile">
                 <path d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23a11.5 11.5 0 016.009 0c2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
@@ -205,7 +222,7 @@ export default function LandingHero() {
             </svg>
           </button>
 
-          {/* Bottom-right: high-contrast editorial project preview card with 3-line caption */}
+          {/* Bottom-right: mountain horizon project preview card with 3-line caption */}
           <a
             href="#projects"
             onClick={e => {
@@ -216,39 +233,44 @@ export default function LandingHero() {
             aria-label={`Featured project: ${featuredProject.name} — view all projects`}
           >
             <div className="hero-preview-thumb">
-              {/* High-contrast stage-lit B&W visual matching the SOUND WAVES bottom-right preview */}
+              {/* Atmospheric B&W mountain peak with glowing horizon sunrise matching reference */}
               <svg viewBox="0 0 240 100" className="w-full h-full object-cover" aria-hidden="true">
                 <defs>
-                  <radialGradient id="stage-spotlight" cx="52%" cy="12%" r="72%">
+                  <radialGradient id="preview-horizon-glow" cx="54%" cy="68%" r="58%">
                     <stop offset="0%" stopColor="#ffffff" stopOpacity="0.98" />
-                    <stop offset="38%" stopColor="#d4d4d8" stopOpacity="0.72" />
-                    <stop offset="75%" stopColor="#3f3f46" stopOpacity="0.28" />
-                    <stop offset="100%" stopColor="#09090b" stopOpacity="1" />
+                    <stop offset="32%" stopColor="#d4d8dd" stopOpacity="0.68" />
+                    <stop offset="68%" stopColor="#272a30" stopOpacity="0.32" />
+                    <stop offset="100%" stopColor="#06080b" stopOpacity="1" />
                   </radialGradient>
+                  <linearGradient id="preview-slope-light" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#e2e8f0" stopOpacity="0.7" />
+                    <stop offset="50%" stopColor="#475569" stopOpacity="0.35" />
+                    <stop offset="100%" stopColor="#090b10" stopOpacity="0.9" />
+                  </linearGradient>
                 </defs>
-                <rect width="240" height="100" fill="#09090b" />
-                <rect width="240" height="100" fill="url(#stage-spotlight)" />
-                {/* Diagonal light beams */}
-                <polygon points="124,0 40,100 88,100" fill="#ffffff" opacity="0.22" />
-                <polygon points="124,0 148,100 202,100" fill="#ffffff" opacity="0.18" />
-                {/* High-contrast dark silhouettes & waveform nodes along bottom edge */}
+                <rect width="240" height="100" fill="#06080b" />
+                <rect width="240" height="100" fill="url(#preview-horizon-glow)" />
+                {/* Distant misty horizon ridge */}
                 <path
-                  d="M0 100V74L14 62L22 76L36 48L46 68L58 56L70 72L84 42L96 66L110 52L122 70L138 38L150 64L164 58L178 44L192 68L206 36L218 62L230 54L240 68V100H0Z"
-                  fill="#070708"
+                  d="M0 100 V 78 L 42 66 L 88 76 L 146 38 L 198 68 L 240 60 V 100 Z"
+                  fill="#0b0e14"
                 />
-                <circle cx="36" cy="44" r="3.5" fill="#070708" />
-                <circle cx="84" cy="38" r="4" fill="#070708" />
-                <circle cx="138" cy="34" r="4" fill="#070708" />
-                <circle cx="178" cy="40" r="3.5" fill="#070708" />
-                <circle cx="206" cy="32" r="4" fill="#070708" />
-                {/* Subtle project label */}
+                {/* Sunlit left facet on the main mountain peak */}
+                <polygon points="146,38 112,72 138,82" fill="url(#preview-slope-light)" />
+                {/* Foreground dark mountain ridge */}
+                <path
+                  d="M0 100 V 84 L 58 72 L 106 80 L 146 38 L 182 70 L 214 64 L 240 76 V 100 Z"
+                  fill="#05070a"
+                  opacity="0.92"
+                />
+                {/* Crisp white project title inside top-left of card */}
                 <text
-                  x="12"
-                  y="19"
-                  fill="#09090b"
-                  fontSize="8.5"
-                  fontWeight="900"
-                  letterSpacing="1.8"
+                  x="14"
+                  y="24"
+                  fill="#f8fafc"
+                  fontSize="7.5"
+                  fontWeight="800"
+                  letterSpacing="1.6"
                   fontFamily="Inter, sans-serif"
                 >
                   {featuredProject.name.toUpperCase()}

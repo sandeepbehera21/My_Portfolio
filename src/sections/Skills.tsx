@@ -13,9 +13,9 @@ const spanClass: Record<SkillCategory['size'], string> = {
 
 const categoryAccent: Record<string, { border: string; badge: string; glow: string }> = {
   'Core Backend': {
-    border: 'dark:border-lime/30 border-emerald-500/25 dark:hover:border-lime hover:border-emerald-600',
-    badge: 'dark:text-lime text-emerald-800 dark:bg-lime/10 bg-lime/25 dark:border-lime/30 border-emerald-600/30',
-    glow: 'from-lime/10 to-transparent',
+    border: 'border-cyan-500/25 dark:border-cyan-400/30 hover:border-cyan-500',
+    badge: 'text-lime bg-lime/10 border-lime/30',
+    glow: 'from-cyan-400/10 to-transparent',
   },
   'Database & Caching': {
     border: 'border-emerald-500/25 dark:border-emerald-400/30 hover:border-emerald-500',
@@ -23,19 +23,19 @@ const categoryAccent: Record<string, { border: string; badge: string; glow: stri
     glow: 'from-emerald-400/10 to-transparent',
   },
   'Security & Auth': {
-    border: 'border-pink-500/25 dark:border-pink/30 hover:border-pink',
-    badge: 'dark:text-pink text-pink-700 dark:bg-pink/10 bg-pink/15 dark:border-pink/30 border-pink-500/30',
-    glow: 'from-pink/10 to-transparent',
+    border: 'border-sky-500/25 dark:border-sky-400/30 hover:border-sky-500',
+    badge: 'text-pink bg-pink/10 border-pink/30',
+    glow: 'from-sky-400/10 to-transparent',
   },
   'DevOps & Cloud': {
     border: 'border-cyan-500/25 dark:border-cyan-400/30 hover:border-cyan-500',
-    badge: 'dark:text-cyan-400 text-cyan-800 dark:bg-cyan-400/10 bg-cyan-500/15 border-cyan-500/30',
+    badge: 'dark:text-cyan-300 text-cyan-800 dark:bg-cyan-400/10 bg-cyan-500/15 border-cyan-500/30',
     glow: 'from-cyan-400/10 to-transparent',
   },
   'Frontend & PWA': {
-    border: 'border-purple-500/25 dark:border-purple-400/30 hover:border-purple-500',
-    badge: 'dark:text-purple-400 text-purple-800 dark:bg-purple-400/10 bg-purple-500/15 border-purple-500/30',
-    glow: 'from-purple-400/10 to-transparent',
+    border: 'border-indigo-500/25 dark:border-indigo-400/30 hover:border-indigo-500',
+    badge: 'dark:text-indigo-300 text-indigo-800 dark:bg-indigo-400/10 bg-indigo-500/15 border-indigo-500/30',
+    glow: 'from-indigo-400/10 to-transparent',
   },
   'AI & Developer Tools': {
     border: 'border-amber-500/25 dark:border-amber-400/30 hover:border-amber-500',

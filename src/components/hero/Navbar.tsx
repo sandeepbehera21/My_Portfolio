@@ -5,18 +5,20 @@ import { usePrefersReducedMotion } from '../../lib/interactions'
 import ThemeToggle from '../ThemeToggle'
 
 const NAV_LINKS = [
-  { label: 'HOME', href: '#home' },
-  { label: 'WORK', href: '#experience' },
-  { label: 'PROJECTS', href: '#projects' },
-  { label: 'ABOUT', href: '#about' },
-  { label: 'CONTACT', href: '#contact' },
+  { label: 'HOME', href: '#home', active: true },
+  { label: 'WORK', href: '#experience', active: false },
+  { label: 'PROJECTS', href: '#projects', active: false },
+  { label: 'ABOUT', href: '#about', active: false },
+  { label: 'CONTACT', href: '#contact', active: false },
 ] as const
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [activeTab, setActiveTab] = useState<string>('HOME')
   const reducedMotion = usePrefersReducedMotion()
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, label: string, href: string) => {
+    setActiveTab(label)
     const id = href.slice(1)
     const target = document.getElementById(id)
     if (target) {
@@ -29,7 +31,7 @@ export default function Navbar() {
   return (
     <header className="hero-navbar-wrap">
       <nav className="hero-navbar" aria-label="Hero navigation">
-        {/* Left: Editorial 3-line mark + SB monogram */}
+        {/* Left: Editorial 3-line mark + SB monogram (S in white, B in electric cyan) */}
         <a
           href="#landing-hero"
           className="hero-logo group"
@@ -40,26 +42,32 @@ export default function Navbar() {
             <span />
             <span />
           </span>
-          <span className="hero-logo-text">{profile.initials}</span>
+          <span className="hero-logo-text">
+            <span className="hero-logo-s">S</span>
+            <span className="hero-logo-b">B</span>
+          </span>
         </a>
 
-        {/* Right: Spaced uppercase links + resume quick-action + LET'S START pill button */}
+        {/* Right: Spaced uppercase links + resume quick-action + theme toggle + LET'S START pill */}
         <div className="hero-nav-right">
           <ul className="hero-nav-links">
-            {NAV_LINKS.map(link => (
-              <li key={link.label}>
-                <a
-                  href={link.href}
-                  onClick={e => handleNavClick(e, link.href)}
-                  className="hero-nav-link"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {NAV_LINKS.map(link => {
+              const isActive = activeTab === link.label
+              return (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    onClick={e => handleNavClick(e, link.label, link.href)}
+                    className={`hero-nav-link${isActive ? ' is-active' : ''}`}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              )
+            })}
           </ul>
 
-          {/* Minimal icon link to Resume (mirrors the magnifying glass icon placement in reference) */}
+          {/* Minimal search/resume icon link (mirrors the magnifying glass icon placement in reference) */}
           <a
             href={profile.resume}
             target="_blank"
@@ -68,7 +76,7 @@ export default function Navbar() {
             aria-label="Open Resume PDF"
             title="View Resume"
           >
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24" aria-hidden="true">
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={1.9} viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </a>
@@ -77,7 +85,7 @@ export default function Navbar() {
 
           <a
             href="#contact"
-            onClick={e => handleNavClick(e, '#contact')}
+            onClick={e => handleNavClick(e, 'CONTACT', '#contact')}
             className="hero-cta-pill"
           >
             LET&rsquo;S START
@@ -119,8 +127,8 @@ export default function Navbar() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    onClick={e => handleNavClick(e, link.href)}
-                    className="hero-mobile-link"
+                    onClick={e => handleNavClick(e, link.label, link.href)}
+                    className={`hero-mobile-link${activeTab === link.label ? ' is-active' : ''}`}
                   >
                     {link.label}
                   </a>
@@ -135,9 +143,6 @@ export default function Navbar() {
                 >
                   RESUME ↗
                 </a>
-              </li>
-              <li className="pt-1">
-                <ThemeToggle className="hero-theme-toggle" />
               </li>
             </ul>
           </motion.div>

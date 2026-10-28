@@ -15,24 +15,40 @@ function getInitialTheme(): Theme {
   return 'dark'
 }
 
-function applyTheme(theme: Theme) {
+function applyThemeToDOM(theme: Theme) {
   const root = document.documentElement
   root.classList.toggle('dark', theme === 'dark')
   root.classList.toggle('light', theme === 'light')
   root.style.colorScheme = theme
 }
 
-export function useTheme() {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme)
+let currentTheme: Theme = getInitialTheme()
+const listeners = new Set<(theme: Theme) => void>()
 
-  useEffect(() => {
-    applyTheme(theme)
+function updateTheme(next: Theme, persist = true) {
+  currentTheme = next
+  applyThemeToDOM(next)
+  if (persist) {
     try {
-      localStorage.setItem(STORAGE_KEY, theme)
+      localStorage.setItem(STORAGE_KEY, next)
     } catch {
       /* ignore */
     }
-  }, [theme])
+  }
+  listeners.forEach(listener => listener(next))
+}
+
+export function useTheme() {
+  const [theme, setThemeState] = useState<Theme>(() => currentTheme)
+
+  useEffect(() => {
+    applyThemeToDOM(currentTheme)
+    const onThemeChange = (next: Theme) => setThemeState(next)
+    listeners.add(onThemeChange)
+    return () => {
+      listeners.delete(onThemeChange)
+    }
+  }, [])
 
   // Follow the OS only while the user hasn't made an explicit choice.
   useEffect(() => {
@@ -44,13 +60,14 @@ export function useTheme() {
       } catch {
         /* ignore */
       }
-      if (!hasChoice) setTheme(e.matches ? 'dark' : 'light')
+      if (!hasChoice) updateTheme(e.matches ? 'dark' : 'light', false)
     }
     mq.addEventListener('change', onChange)
     return () => mq.removeEventListener('change', onChange)
   }, [])
 
-  const toggle = () => setTheme(t => (t === 'dark' ? 'light' : 'dark'))
+  const setTheme = (next: Theme) => updateTheme(next, true)
+  const toggle = () => updateTheme(currentTheme === 'dark' ? 'light' : 'dark', true)
 
   return { theme, setTheme, toggle }
 }

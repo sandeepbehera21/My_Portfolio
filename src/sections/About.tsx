@@ -30,8 +30,8 @@ function BentoCell({
 function FactIcon({ d, color = 'var(--lime)' }: { d: string; color?: string }) {
   return (
     <span
-      className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-      style={{ background: 'rgba(213, 255, 53, 0.08)', color }}
+      className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 bg-sunken border border-subtle"
+      style={{ color }}
     >
       <svg
         className="w-4 h-4"
