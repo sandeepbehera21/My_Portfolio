@@ -125,7 +125,7 @@ export default function Contact() {
             </ul>
           </div>
 
-          <div className="mt-8 pt-5 border-t border-subtle flex items-center justify-between text-xs font-mono text-muted-c">
+          <div className="mt-8 pt-5 border-t border-subtle flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-muted-c">
             <span>Location: Bhubaneswar, India</span>
             <span className="text-lime">GMT +5:30</span>
           </div>

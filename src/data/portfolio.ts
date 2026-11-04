@@ -7,9 +7,9 @@ export const profile = {
   name: 'Sandeep Behera',
   initials: 'SB',
   role: 'Backend Developer',
-  tagline: 'Backend Developer | Java Spring Boot & MERN Stack | Building Scalable APIs & Secure Systems',
+  tagline: 'Backend & Full-Stack Developer — Java Spring Boot, MERN & Cloud Systems',
   summary:
-    'Designing backend architectures that scale, perform, and stay reliable — from microservices to full-stack solutions.',
+    'Building high-throughput APIs, distributed backends, and cloud-native applications.',
   quote: 'I don’t just build APIs — I build systems that think, scale, and deliver.',
   email: 'beherasandeepkumar21@gmail.com',
   phone: '+91 93373 33525',
@@ -25,31 +25,28 @@ export const profile = {
 }
 
 export const about = [
-  'I’m a Backend Developer who loves turning ideas into scalable, production-ready systems using Java–Spring Boot and the MERN stack. Currently in my 4th year of B.Tech in Computer Science at Centurion University, Bhubaneswar, I enjoy designing robust APIs, optimized databases, and secure authentication flows that power real-world applications.',
-  'From REST API design and microservices architecture to cloud deployment on Google Cloud, I’m driven by the challenge of building systems that are both technically strong and impactful in the real world.',
+  'Final-year CS undergrad at Centurion University specializing in Java Spring Boot, MERN stack, and cloud-native backend systems. I focus on clean API contracts, optimized schemas, and stateless security.',
 ]
 
 /**
  * Small fact cells for the About bento. Kept separate from the paragraphs above.
- * (Avoid the bare word "p-r-o-s-e" in comments here — Tailwind v4 scans source
- * files as plain text, so it would match the typography plugin and emit ~14kB.)
  */
 export const aboutFacts = {
   education: {
     label: 'Education',
     value: 'B.Tech, Computer Science',
-    org: 'Centurion University, Bhubaneswar',
+    org: 'Centurion University',
     detail: '4th year',
   },
   currently: {
     label: 'Programme',
     value: 'Java Full-Stack Developer',
     org: 'Infosys Springboard',
-    detail: 'Aug 2026 – Oct 2026',
+    detail: 'Aug – Oct 2026',
   },
   focus: ['Java', 'Spring Boot', 'MERN', 'REST APIs', 'Google Cloud'],
   location: 'Bhubaneswar, India',
-  locationNote: 'All internships to date were fully remote',
+  locationNote: 'Remote & On-Site Ready',
 }
 
 export type SkillCategory = {
@@ -64,8 +61,8 @@ export type SkillCategory = {
 export const skillCategories: SkillCategory[] = [
   {
     title: 'Core Backend',
-    subtitle: 'Scalable microservices & high-throughput APIs',
-    badge: 'Core Focus',
+    subtitle: 'Microservices & REST APIs',
+    badge: 'Core',
     size: 'std',
     items: [
       { name: 'Java', icon: 'java' },
@@ -78,8 +75,8 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     title: 'Database & Caching',
-    subtitle: 'ACID transactions, NoSQL & in-memory stores',
-    badge: 'Data Layer',
+    subtitle: 'SQL, NoSQL & in-memory stores',
+    badge: 'Data',
     size: 'std',
     items: [
       { name: 'MySQL', icon: 'mysql' },
@@ -90,8 +87,8 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     title: 'Security & Auth',
-    subtitle: 'Stateless auth, tokens & cryptographic RBAC',
-    badge: 'Security',
+    subtitle: 'Stateless tokens & RBAC',
+    badge: 'Auth',
     size: 'std',
     items: [
       { name: 'Spring Security', icon: 'shield' },
@@ -102,8 +99,8 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     title: 'DevOps & Cloud',
-    subtitle: 'Containerization, cloud infrastructure & CI/CD',
-    badge: 'Cloud & Ops',
+    subtitle: 'Containers & cloud ops',
+    badge: 'Cloud',
     size: 'std',
     items: [
       { name: 'Docker', icon: 'docker' },
@@ -114,8 +111,8 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     title: 'Frontend & PWA',
-    subtitle: 'Responsive UI, offline Service Workers & PWAs',
-    badge: 'Client Web',
+    subtitle: 'Modern React & offline PWAs',
+    badge: 'Web',
     size: 'std',
     items: [
       { name: 'React 18', icon: 'react' },
@@ -126,8 +123,8 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     title: 'AI & Developer Tools',
-    subtitle: 'On-device inference, WebRTC & API automation',
-    badge: 'AI & Tooling',
+    subtitle: 'Edge AI, WebRTC & API testing',
+    badge: 'AI',
     size: 'std',
     items: [
       { name: 'Gemini AI', icon: 'ai' },
@@ -138,10 +135,6 @@ export const skillCategories: SkillCategory[] = [
   },
 ]
 
-/**
- * Hero stat strip. Every figure here must be traceable to something else on
- * the page — the 40% comes from the INFOTACT internship wins below.
- */
 export const heroStats = [
   { value: '40%', label: 'Faster API responses' },
   { value: '3', label: 'Shipped projects' },
@@ -152,15 +145,9 @@ export type Project = {
   name: string
   tagline: string
   desc: string
-  /** Case-study spine: what was broken → what I built → what changed. */
   problem: string
   approach: string[]
   impact: string[]
-  /**
-   * Optional highlighted number row. Add ONLY figures you can defend if a judge
-   * asks how you measured them (latency, request volume, users, build time).
-   * Deliberately empty — invented metrics are the fastest way to lose trust.
-   */
   metrics?: { value: string; label: string }[]
   stack: string[]
   links: { label: string; href: string }[]
@@ -170,20 +157,20 @@ export type Project = {
 export const projects: Project[] = [
   {
     name: 'Carbon Tracker Full-Stack PWA',
-    tagline: 'Real-time carbon accounting and corporate ESG intelligence for individuals and teams',
-    desc: 'Real-time carbon accounting and corporate ESG intelligence platform for individuals and enterprise teams, featuring automated emission calculation, time-series analytics, and Gemini AI reduction roadmaps.',
+    tagline: 'Real-time carbon accounting & ESG analytics platform',
+    desc: 'Automated carbon tracking, time-series ESG analytics, and Gemini AI sustainability insights.',
     problem:
-      'Individuals and organizations have no unified way to quantify daily CO2e across commutes, energy, diet, and waste — leaving personal climate goals unmeasurable and corporate ESG reporting stuck in manual spreadsheets.',
+      'Teams and individuals lack a unified tool to track daily CO2e across transport, energy, and diet without manual spreadsheets.',
     approach: [
-      'Built a rule-based emission engine in Spring Boot 3 backed by MySQL & Flyway, applying configurable IPCC/EPA coefficients across 24+ activity types.',
-      'Engineered JPQL time-series aggregations with fault-tolerant Redis caching (<100ms reads) and Spring Security 6 (JWT + Google OAuth2) across USER, ORG_ADMIN, and ADMIN roles.',
-      'Shipped an installable React 18 PWA with hybrid Service Worker caching, Recharts analytics, Gemini AI reduction insights, and 70+ language support.',
+      'Spring Boot 3 rule engine with MySQL & Flyway across 24+ IPCC/EPA emission factors.',
+      'Redis-cached JPQL aggregations (<100ms) with JWT, Google OAuth2 & 3-tier RBAC.',
+      'Installable React 18 PWA with Recharts analytics, Gemini AI insights & 70+ languages.',
     ],
     impact: [
-      'Converts raw daily habits into real-time kg CO2e metrics, streaks, badges, and peer-benchmarked leaderboards instead of static estimates.',
-      'Multi-tenant organization portal automates department-level footprint rollups and audit-ready CSR / ESG disclosures with zero manual spreadsheets.',
+      'Real-time kg CO2e tracking with gamified streaks, badges, and peer leaderboards.',
+      'Automated multi-tenant CSR / ESG reporting with zero manual spreadsheet rollups.',
     ],
-    stack: ['Spring Boot 3', 'Java 17', 'React 18 PWA', 'MySQL', 'Redis', 'JWT + OAuth2', 'Gemini AI', 'Recharts'],
+    stack: ['Spring Boot 3', 'Java 17', 'React 18 PWA', 'MySQL', 'Redis', 'JWT + OAuth2', 'Gemini AI'],
     links: [
       {
         label: 'GitHub Code',
@@ -193,21 +180,21 @@ export const projects: Project[] = [
     icon: 'leaf',
   },
   {
-    name: 'MindEase — Multimodal Mental Health Platform',
-    tagline: 'HIPAA-conscious mental health portal with on-device emotion AI and secure telehealth',
-    desc: 'HIPAA-conscious mental health platform featuring edge-first on-device facial emotion inference, encrypted clinical notes, real-time AI companion, and secure WebRTC video consultations.',
+    name: 'MindEase — Mental Health Platform',
+    tagline: 'Privacy-first telehealth with on-device emotion AI',
+    desc: 'HIPAA-conscious mental health portal with edge emotion AI, encrypted notes, and WebRTC video.',
     problem:
-      'Digital mental health portals struggle with patient trust and video privacy: sending raw webcam feeds to cloud servers raises compliance and latency concerns, while patient self-care tools (CBT, journals) remain disconnected from clinician telehealth workflows.',
+      'Cloud video processing raises privacy and latency risks in telehealth, while patient self-care tools stay siloed from clinicians.',
     approach: [
-      'Edge-First ONNX Pipeline: Quantized facial emotion recognition runs locally in multi-threaded WebAssembly / Web Workers — raw video frames never leave the patient’s device.',
-      'Cryptographic Session Security: AES-256-GCM encrypted clinical notes and SHA-256 + RSA-2048 digital signatures for tamper-proof post-session medical PDFs.',
-      'Real-Time Multimodal Services: FastAPI WebSocket chat companion ("Rahat") with automated distress gating, paired with Agora WebRTC dynamic-token video consultations.',
+      'On-device ONNX / WASM facial emotion pipeline — webcam frames never leave the browser.',
+      'AES-256-GCM encrypted clinical notes with RSA-2048 signed session PDFs.',
+      'FastAPI WebSocket AI companion ("Rahat") paired with Agora WebRTC video calls.',
     ],
     impact: [
-      '100% Client-Side Privacy: Zero video data transmitted to external servers, eliminating cloud bandwidth overhead and meeting zero-trust privacy standards.',
-      'Sub-50ms Local Inference & Auditability: Real-time 60 FPS emotion inference with zero UI thread blocking, backed by an immutable consent audit log for every doctor query.',
+      '100% client-side video privacy with zero external video streaming overhead.',
+      'Sub-50ms 60 FPS local inference backed by an immutable clinician consent log.',
     ],
-    stack: ['FastAPI', 'React.js', 'Python', 'ONNX / WASM', 'WebRTC (Agora)', 'Firebase', 'AES-256', 'Docker'],
+    stack: ['FastAPI', 'React.js', 'Python', 'ONNX / WASM', 'WebRTC', 'AES-256', 'Docker'],
     links: [
       {
         label: 'GitHub Code',
@@ -222,19 +209,18 @@ export const projects: Project[] = [
   },
   {
     name: 'Craft Connect MERN',
-    tagline: 'AI storytelling on a cloud-native marketplace',
-    desc: 'CraftConnect connects traditional artisans with global customers using AI-powered storytelling and cloud-native tools — AI Story Generator, Global Marketplace, Social Sharing.',
+    tagline: 'AI storytelling on a cloud-native artisan marketplace',
+    desc: 'Cloud-native marketplace connecting traditional artisans with global buyers using Gemini AI storytelling.',
     problem:
-      'Artisans have genuinely compelling stories but no way to write them at scale — and no reach past local buyers.',
+      'Local artisans have authentic craft stories but lack copywriting tools and digital reach beyond local markets.',
     approach: [
-      'Gemini API generates product narratives from a few artisan-supplied details',
-      'Deployed on Google Cloud App Engine, so capacity follows traffic with no server management',
-      'Social-sharing hooks turn every listing into its own distribution surface',
+      'Gemini AI generates rich product stories from brief artisan prompts.',
+      'Stateless Node.js & Express APIs deployed on Google Cloud App Engine.',
+      'Social-sharing hooks turn every product listing into a shareable storefront.',
     ],
     impact: [
-      'Story generation removes the copywriting barrier to listing a product',
-      'Live and publicly reachable on Google Cloud, not a local-only demo',
-      'Designed, built and shipped inside a hackathon window',
+      'Eliminates the copywriting barrier for non-technical artisans.',
+      'Live, autoscaled production deployment on Google Cloud.',
     ],
     stack: ['Node.js', 'Express', 'MongoDB', 'JWT', 'Google Cloud', 'Gemini API', 'React.js'],
     links: [
@@ -261,19 +247,17 @@ export const experiences: Experience[] = [
   {
     title: 'Java Full-Stack Developer Intern',
     company: 'Infosys Springboard',
-    period: 'August 2026 – October 2026',
+    period: 'Aug 2026 – Oct 2026',
     location: 'Remote',
     description: [
-      'Architected a full-stack Sustainability & Carbon Emission Monitoring platform using Spring Boot 3 REST APIs and React 18 PWA',
-      'Implemented Spring Security 6 authentication with stateless JWT, Google OAuth2 SSO, and 3-tier RBAC (USER, ORG_ADMIN, ADMIN)',
-      'Modelled normalized MySQL schemas with Flyway migrations and built a rule-based emission calculation engine across 24+ IPCC/EPA activity types',
-      'Integrated Recharts analytics dashboards, event-driven gamification badges, multi-tenant CSR/ESG reporting, and Gemini AI recommendations',
+      'Architected a full-stack Carbon Emission Monitoring platform with Spring Boot 3 & React 18 PWA.',
+      'Built Spring Security 6 auth with stateless JWT, Google OAuth2 SSO, and 3-tier RBAC.',
+      'Designed normalized MySQL schemas with Flyway and a 24-factor IPCC/EPA calculation engine.',
     ],
-    tech: ['Spring Boot 3', 'Java 17', 'React.js', 'MySQL', 'Redis', 'JWT', 'OAuth2', 'Flyway'],
+    tech: ['Spring Boot 3', 'Java 17', 'React.js', 'MySQL', 'Redis', 'JWT', 'OAuth2'],
     wins: [
-      'Project selected as the official batch highlight and merged into the main Infosys Springboard repository',
-      'Achieved sub-100ms dashboard load times by optimizing JPQL aggregate queries with fault-tolerant Redis caching',
-      'Delivered an installable mobile PWA with offline Service Worker resilience and 70+ language support',
+      'Selected as official batch highlight and merged into the Infosys Springboard repo.',
+      'Sub-100ms dashboard loads via JPQL query tuning and Redis caching.',
     ],
     certificate: 'https://springboard.infosys.com',
     status: 'Completed',
@@ -281,18 +265,16 @@ export const experiences: Experience[] = [
   {
     title: 'Web Developer Intern',
     company: 'INFOTACT Solutions',
-    period: 'April 2025 – June 2025',
+    period: 'Apr 2025 – Jun 2025',
     location: 'Remote',
     description: [
-      'Developed MERN websites',
-      'Implemented JWT auth tokens',
-      'Gained hands-on experience in React, Node.js, Express, and MongoDB while collaborating on real-world client projects.',
-      'Partnered with frontend to integrate React apps with backend services',
+      'Built full-stack MERN applications with RESTful APIs and JWT authentication.',
+      'Integrated React frontends with Node.js, Express, and MongoDB backend services.',
     ],
-    tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'OAuth'],
+    tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT'],
     wins: [
-      'Achieved 40% faster API responses by optimizing queries and indexing',
-      'Production-grade logging and metrics for real-time performance monitoring and debugging',
+      '40% faster API response times through MongoDB query indexing.',
+      'Added structured production logging and real-time metrics.',
     ],
     certificate: '/sandeep-infotact.pdf',
     status: 'Completed',
@@ -300,16 +282,15 @@ export const experiences: Experience[] = [
   {
     title: 'AI & Cloud Programme',
     company: 'Edunet Foundation',
-    period: 'September 2025 – October 2025',
+    period: 'Sep 2025 – Oct 2025',
     location: 'Remote',
     description: [
-      'Delivered AI apps end-to-end with Cloud',
-      'Designed database schemas for e-commerce flows',
-      'Completed 4-week internship on Artificial Intelligence & Cloud Technology in collaboration with AICTE',
+      'Built and deployed end-to-end AI & cloud web apps under the AICTE collaboration.',
+      'Designed scalable NoSQL schemas for e-commerce workflows.',
     ],
     tech: ['React', 'Node.js', 'Express', 'MongoDB', 'AWS'],
     wins: [
-      'Certified by All India Council for Technical Education (AICTE) & Edunet Foundation (Student ID: STU66a54e98943d61722109592)',
+      'Certified by AICTE & Edunet Foundation (ID: STU66a54e98943d61722109592).',
     ],
     certificate: '/AICTE B4 PD Completion-908.pdf',
     status: 'Completed',
@@ -319,10 +300,10 @@ export const experiences: Experience[] = [
 export const systemDesign = [
   {
     title: 'For MERN',
-    body: 'End-to-end web apps with React, Node.js, Express, and MongoDB — using REST APIs, JWT auth, and Redis caching for performance and stateless sessions.',
+    body: 'End-to-end web apps with React, Node.js, Express, and MongoDB — using REST APIs, JWT auth, and Redis caching.',
   },
   {
     title: 'For Java',
-    body: 'Enterprise-grade backends with layered architecture (Controller → Service → Repository), secure JWT authentication, pagination, and database optimization.',
+    body: 'Enterprise backends with layered architecture (Controller → Service → Repository), JWT security, and tuned SQL.',
   },
 ]

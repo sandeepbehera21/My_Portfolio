@@ -11,8 +11,11 @@ import Experience from './sections/Experience'
 import SystemDesign from './sections/SystemDesign'
 import Contact from './sections/Contact'
 import Footer from './sections/Footer'
+import { useSmoothScroll } from './lib/interactions'
 
 export default function App() {
+  useSmoothScroll()
+
   return (
     <div className="min-h-screen">
       <a

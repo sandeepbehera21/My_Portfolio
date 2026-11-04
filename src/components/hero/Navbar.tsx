@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { profile } from '../../data/portfolio'
-import { usePrefersReducedMotion } from '../../lib/interactions'
+import { smoothScrollTo } from '../../lib/interactions'
 import ThemeToggle from '../ThemeToggle'
 
 const NAV_LINKS = [
@@ -15,7 +15,6 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeTab, setActiveTab] = useState<string>('HOME')
-  const reducedMotion = usePrefersReducedMotion()
 
   useEffect(() => {
     if (!menuOpen) return
@@ -33,7 +32,7 @@ export default function Navbar() {
     if (target) {
       e.preventDefault()
       setMenuOpen(false)
-      target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' })
+      smoothScrollTo(target)
     }
   }
 

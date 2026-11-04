@@ -4,7 +4,7 @@ import Navbar from './hero/Navbar'
 import Blobs from './hero/Blobs'
 import HeroText from './hero/HeroText'
 import SideIndex from './hero/SideIndex'
-import { usePrefersReducedMotion } from '../lib/interactions'
+import { smoothScrollTo, usePrefersReducedMotion } from '../lib/interactions'
 import { profile, projects } from '../data/portfolio'
 
 const EASE_OUT = [0.22, 1, 0.36, 1] as const
@@ -57,7 +57,7 @@ export default function LandingHero() {
   }, [mouseX, mouseY])
 
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' })
+    smoothScrollTo(id)
   }
 
   const featuredProject = projects[2] ?? projects[0]

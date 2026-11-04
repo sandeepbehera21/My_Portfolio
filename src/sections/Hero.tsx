@@ -65,18 +65,18 @@ export default function Hero() {
 
           <motion.div
             variants={item}
-            className="mt-8 flex flex-wrap gap-3.5 justify-start items-center"
+            className="mt-7 sm:mt-8 flex flex-wrap gap-3 sm:gap-3.5 justify-start items-center"
           >
-            <a href="#projects" className="btn-primary">
+            <a href="#projects" className="btn-primary flex-1 sm:flex-initial">
               <span>View Projects</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
             </a>
-            <a href="#contact" className="btn-ghost">
+            <a href="#contact" className="btn-ghost flex-1 sm:flex-initial">
               Get in Touch
             </a>
-            <a href={profile.resume} target="_blank" rel="noopener noreferrer" className="btn-ghost">
+            <a href={profile.resume} target="_blank" rel="noopener noreferrer" className="btn-ghost w-full sm:w-auto">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h5l2 2h7a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
               </svg>
@@ -156,7 +156,7 @@ export default function Hero() {
                 <span className="text-xs text-faint-c">Production Stack</span>
               </div>
 
-              <div className="grid grid-cols-2 gap-2.5 text-xs sm:text-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm">
                 <div className="p-3 rounded-lg bg-sunken border border-subtle">
                   <span className="font-medium text-strong block">High-Throughput APIs</span>
                   <span className="text-xs text-muted-c">Spring Boot &amp; Node.js</span>
@@ -175,7 +175,7 @@ export default function Hero() {
                 </div>
               </div>
 
-              <div className="mt-4 pt-3.5 border-t border-subtle flex items-center justify-between text-xs text-muted-c">
+              <div className="mt-4 pt-3.5 border-t border-subtle flex flex-wrap items-center justify-between gap-2 text-xs text-muted-c">
                 <span className="flex items-center gap-1.5">
                   <svg className="w-3.5 h-3.5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />

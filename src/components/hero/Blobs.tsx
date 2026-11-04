@@ -67,47 +67,6 @@ export default function Blobs({
             <circle cx="4" cy="4" r="1.2" fill="var(--hero-tech-dot, rgba(0, 217, 245, 0.24))" />
           </pattern>
 
-          {/* Subtle planet surface organic texture filter */}
-          <filter id="planet-surface" x="-10%" y="-10%" width="120%" height="120%">
-            <feTurbulence
-              type="fractalNoise"
-              baseFrequency="0.026"
-              numOctaves="3"
-              seed="14"
-              result="noise"
-            />
-            <feColorMatrix
-              type="matrix"
-              values="0 0 0 0 0
-                      0 0.55 0 0 0.04
-                      0 0.72 0 0 0.06
-                      0 0 0 0.26 0"
-              in="noise"
-              result="coloredNoise"
-            />
-            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="textured" />
-            <feBlend mode="screen" in="SourceGraphic" in2="textured" />
-          </filter>
-
-          {/* Restrained glow filter for cyan rim lights */}
-          <filter id="cyan-glow" x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur stdDeviation="9" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-
-          <filter id="cyan-soft-limb" x="-40%" y="-40%" width="180%" height="180%">
-            <feGaussianBlur stdDeviation="16" result="blur1" />
-            <feGaussianBlur stdDeviation="6" result="blur2" />
-            <feMerge>
-              <feMergeNode in="blur1" />
-              <feMergeNode in="blur2" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-
           {/* Radial mask for portrait halftone aura */}
           <radialGradient id="portrait-halftone-grad" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="white" stopOpacity="1" />
@@ -316,14 +275,12 @@ export default function Blobs({
               cy="585"
               r="96"
               fill="url(#left-planet-fill)"
-              filter="url(#planet-surface)"
             />
 
             {/* Refined cyan crescent rim highlight */}
             <path
               d="M375 489 A 96 96 0 0 1 471 585 A 96 96 0 0 1 405 676 A 93.5 96 0 0 0 466 585 A 93.5 96 0 0 0 375 489 Z"
               fill="var(--hero-planet-rim, #72F2FF)"
-              filter="url(#cyan-glow)"
               opacity="var(--hero-rim-opacity, 0.82)"
             />
           </g>
@@ -348,14 +305,12 @@ export default function Blobs({
               cy="395"
               r="168"
               fill="url(#right-planet-fill)"
-              filter="url(#planet-surface)"
             />
 
             {/* Refined glowing cyan crescent limb on right edge */}
             <path
               d="M1074 229 A 168 168 0 0 1 1268 395 A 168 168 0 0 1 1147 556 A 164 168 0 0 0 1261 395 A 164 168 0 0 0 1074 229 Z"
               fill="var(--hero-planet-rim, #A6F8FF)"
-              filter="url(#cyan-soft-limb)"
               opacity="var(--hero-rim-opacity, 0.86)"
             />
 
@@ -365,13 +320,11 @@ export default function Blobs({
               cy="432"
               r="62"
               fill="url(#right-moon-fill)"
-              filter="url(#planet-surface)"
             />
             {/* Foreground moon cyan crescent rim light */}
             <path
               d="M1122 370 A 62 62 0 0 1 1184 432 A 62 62 0 0 1 1136 492 A 59.5 62 0 0 0 1180 432 A 59.5 62 0 0 0 1122 370 Z"
               fill="var(--hero-planet-rim, #72F2FF)"
-              filter="url(#cyan-glow)"
               opacity="var(--hero-rim-opacity, 0.8)"
             />
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { AnimatePresence, motion, useScroll, useSpring } from 'framer-motion'
+import { AnimatePresence, motion, useScroll } from 'framer-motion'
 import ThemeToggle from './ThemeToggle'
 
 const links = [
@@ -50,13 +50,23 @@ export default function Nav() {
   const active = useActiveSection()
 
   const { scrollYProgress } = useScroll()
-  const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 30, restDelta: 0.001 })
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
+    let raf = 0
+    const onScroll = () => {
+      if (raf) return
+      raf = requestAnimationFrame(() => {
+        raf = 0
+        const next = window.scrollY > 8
+        setScrolled(prev => (prev === next ? prev : next))
+      })
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      if (raf) cancelAnimationFrame(raf)
+    }
   }, [])
 
   useEffect(() => {
@@ -132,7 +142,7 @@ export default function Nav() {
       </nav>
 
       {/* Reading-progress rail, pinned to the bottom edge of the bar */}
-      <motion.div className="nav-progress" style={{ scaleX: progress }} aria-hidden="true" />
+      <motion.div className="nav-progress" style={{ scaleX: scrollYProgress }} aria-hidden="true" />
 
       <AnimatePresence>
         {isMenuOpen && (

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { usePrefersReducedMotion } from '../../lib/interactions'
+import { smoothScrollTo } from '../../lib/interactions'
 
 const INDEX_ITEMS = [
   { num: '01', label: 'Hero', href: '#landing-hero' },
@@ -11,14 +11,13 @@ const INDEX_ITEMS = [
 
 export default function SideIndex() {
   const [active, setActive] = useState('01')
-  const reducedMotion = usePrefersReducedMotion()
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, num: string, href: string) => {
     setActive(num)
     const target = document.getElementById(href.slice(1))
     if (target) {
       e.preventDefault()
-      target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' })
+      smoothScrollTo(target)
     }
   }
 

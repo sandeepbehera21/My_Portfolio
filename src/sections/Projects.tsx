@@ -126,7 +126,7 @@ export default function Projects() {
                 </div>
 
                 {/* Primary Action Links (GitHub & Live Demo) */}
-                <div className="flex flex-wrap items-center gap-2.5 flex-shrink-0 self-start mt-2 sm:mt-0">
+                <div className="flex flex-wrap items-center gap-2.5 flex-shrink-0 w-full sm:w-auto self-start mt-2 sm:mt-0">
                   {p.links.map(l => {
                     const isLive = l.label.toLowerCase().includes('live')
                     return (
@@ -135,7 +135,7 @@ export default function Projects() {
                         href={l.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={isLive ? 'btn-primary text-xs !py-2 !px-4' : 'btn-ghost text-xs !py-2 !px-4'}
+                        className={`${isLive ? 'btn-primary' : 'btn-ghost'} text-xs !py-2.5 sm:!py-2 !px-4 flex-1 sm:flex-initial`}
                       >
                         {isLive ? (
                           <>
@@ -175,37 +175,33 @@ export default function Projects() {
               )}
 
               {/* The Case-Study Spine (Problem, Approach, Impact) */}
-              <div className="mt-6 grid gap-5 lg:grid-cols-3">
+              <div className="mt-6 grid gap-4 lg:grid-cols-3">
                 <div className="p-4 rounded-xl bg-sunken border border-subtle">
-                  <CaseBlock label="Problem &amp; Challenge" badgeClass="text-pink">
+                  <CaseBlock label="Challenge" badgeClass="text-pink">
                     <p className="text-xs sm:text-sm text-body-c leading-relaxed">{p.problem}</p>
                   </CaseBlock>
                 </div>
 
                 <div className="p-4 rounded-xl bg-sunken border border-subtle">
-                  <CaseBlock label="Engineering Approach" badgeClass="text-pink">
+                  <CaseBlock label="Architecture" badgeClass="text-pink">
                     {bullets(p.approach)}
                   </CaseBlock>
                 </div>
 
                 <div className="p-4 rounded-xl bg-sunken border border-subtle">
-                  <CaseBlock label="Measurable Outcome" badgeClass="text-lime">
+                  <CaseBlock label="Impact" badgeClass="text-lime">
                     {bullets(p.impact)}
                   </CaseBlock>
                 </div>
               </div>
 
               {/* Tech Stack Chips Strip */}
-              <div className="mt-6 pt-4 border-t border-subtle flex flex-wrap items-center justify-between gap-3">
-                <div className="flex flex-wrap gap-1.5 items-center">
-                  <span className="text-[11px] font-mono uppercase text-muted-c mr-1.5 hidden sm:inline">Stack:</span>
-                  {p.stack.map(tech => (
-                    <span key={tech} className="tag text-xs font-mono">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <span className="text-xs font-mono text-faint-c">Production Architecture</span>
+              <div className="mt-5 pt-4 border-t border-subtle flex flex-wrap gap-1.5 items-center">
+                {p.stack.map(tech => (
+                  <span key={tech} className="tag text-xs font-mono">
+                    {tech}
+                  </span>
+                ))}
               </div>
             </div>
           </motion.article>

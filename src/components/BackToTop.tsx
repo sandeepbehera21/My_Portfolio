@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { AnimatePresence, motion, useScroll, useSpring } from 'framer-motion'
+import { AnimatePresence, motion, useScroll } from 'framer-motion'
+import { smoothScrollTo } from '../lib/interactions'
 
 /**
  * Back-to-top button that appears once you are well past the fold. The ring
@@ -9,13 +10,23 @@ import { AnimatePresence, motion, useScroll, useSpring } from 'framer-motion'
 export default function BackToTop() {
   const [visible, setVisible] = useState(false)
   const { scrollYProgress } = useScroll()
-  const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 30, restDelta: 0.001 })
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 900)
+    let raf = 0
+    const onScroll = () => {
+      if (raf) return
+      raf = requestAnimationFrame(() => {
+        raf = 0
+        const next = window.scrollY > 900
+        setVisible(prev => (prev === next ? prev : next))
+      })
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      if (raf) cancelAnimationFrame(raf)
+    }
   }, [])
 
   return (
@@ -23,7 +34,7 @@ export default function BackToTop() {
       {visible && (
         <motion.button
           type="button"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={() => smoothScrollTo(0)}
           initial={{ opacity: 0, scale: 0.8, y: 12 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 12 }}
@@ -39,7 +50,7 @@ export default function BackToTop() {
               cy="22"
               r="20"
               className="to-top-bar"
-              style={{ pathLength: progress }}
+              style={{ pathLength: scrollYProgress }}
             />
           </svg>
           <svg className="w-4 h-4 relative" fill="none" stroke="currentColor" strokeWidth={2.25} viewBox="0 0 24 24" aria-hidden="true">

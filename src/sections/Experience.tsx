@@ -84,13 +84,13 @@ export default function ExperienceSection() {
               </div>
 
               {/* Right Body (Responsibilities & Measurable Wins) */}
-              <div className="lg:col-span-8 p-6 sm:p-7 lg:p-8 flex flex-col justify-between">
+              <div className="lg:col-span-8 p-6 sm:p-7 flex flex-col justify-between">
                 <div>
                   <h4 className="text-xs font-mono uppercase tracking-wider text-muted-c mb-3 flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-pink" />
-                    Key Responsibilities &amp; Architecture
+                    Key Contributions
                   </h4>
-                  <ul className="space-y-3">
+                  <ul className="space-y-2.5">
                     {exp.description.map((d, j) => (
                       <li key={j} className="flex items-start gap-2.5 text-xs sm:text-sm text-body-c leading-relaxed">
                         <svg
@@ -109,12 +109,12 @@ export default function ExperienceSection() {
                   </ul>
 
                   {exp.wins?.length ? (
-                    <div className="mt-6 p-4 rounded-xl border border-lime/30 bg-lime/5">
-                      <h4 className="text-xs font-mono uppercase tracking-wider text-lime font-semibold mb-2 flex items-center gap-2">
+                    <div className="mt-5 p-3.5 rounded-xl border border-lime/30 bg-lime/5">
+                      <h4 className="text-xs font-mono uppercase tracking-wider text-lime font-semibold mb-1.5 flex items-center gap-2">
                         <span>⚡</span>
-                        Measurable Wins &amp; Production Outcomes
+                        Key Outcomes
                       </h4>
-                      <div className="space-y-2">
+                      <div className="space-y-1.5">
                         {exp.wins.map((w, k) => (
                           <div key={k} className="flex items-start gap-2 text-xs sm:text-sm text-strong leading-relaxed font-medium">
                             <span className="text-lime font-mono">→</span>
@@ -123,14 +123,7 @@ export default function ExperienceSection() {
                         ))}
                       </div>
                     </div>
-                  ) : (
-                    <p className="mt-6 text-xs font-mono text-faint-c italic">// Ongoing programme — milestones actively being shipped.</p>
-                  )}
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-subtle flex items-center justify-between text-xs font-mono text-muted-c">
-                  <span>Role Status: {exp.status || (i < 2 ? 'Completed' : 'Active Programme')}</span>
-                  <span className="text-pink">Production Delivery</span>
+                  ) : null}
                 </div>
               </div>
             </div>
